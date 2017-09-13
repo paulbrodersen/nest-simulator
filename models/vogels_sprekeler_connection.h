@@ -299,10 +299,13 @@ VogelsSprekelerConnection< targetidentifierT >::set_status(
   updateValue< double >( d, names::Kplus, Kplus_ );
 
   // check if weight_ and Wmax_ has the same sign
-  if ( not( ( ( weight_ >= 0 ) - ( weight_ < 0 ) )
-         == ( ( Wmax_ >= 0 ) - ( Wmax_ < 0 ) ) ) )
+  if (weight_ != 0)
   {
-    throw BadProperty( "Weight and Wmax must have same sign." );
+      if ( not( ( ( weight_ >= 0 ) - ( weight_ < 0 ) )
+             == ( ( Wmax_   >= 0 ) - ( Wmax_   < 0 ) ) ) )
+      {
+          throw BadProperty( "Weight and Wmax must have same sign." );
+      }
   }
 
   if ( not( Kplus_ >= 0 ) )
