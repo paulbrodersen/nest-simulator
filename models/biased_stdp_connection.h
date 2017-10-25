@@ -176,8 +176,6 @@ private:
   double tau_plus_;
   double lambda_;
   double alpha_;
-  double mu_plus_;
-  double mu_minus_;
   double Wmax_;
   double Kplus_;
   double bias_;
