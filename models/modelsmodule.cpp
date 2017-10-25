@@ -136,6 +136,9 @@
 #include "tsodyks_connection_hom.h"
 #include "vogels_sprekeler_connection.h"
 
+// custom synapse connections
+#include "biased_stdp_connection.h"
+
 // Includes from nestkernel:
 #include "common_synapse_properties.h"
 #include "connector_model_impl.h"
@@ -658,6 +661,12 @@ ModelsModule::init( SLIInterpreter* )
     .model_manager
     .register_connection_model< BernoulliConnection< TargetIdentifierPtrRport > >(
       "bernoulli_synapse" );
+
+  kernel()
+      .model_manager
+      .register_connection_model< BiasedSTDPConnection< TargetIdentifierPtrRport > >(
+          "biased_stdp_synapse" );
+
 }
 
 } // namespace nest
