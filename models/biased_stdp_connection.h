@@ -27,9 +27,9 @@
   Name: biased_stdp_synapse - Synapse type for spike-timing dependent
    plasticity.
 
-  Description:
-   Essentially like stdp_synapse with mu_plus and mu_minus set to 0.,
-   but with a consistent bias as in the vogels_sprekeler_synapse.
+  Description: This is an extension of stdp_synapse, but with a
+   consistent bias as in the vogels_sprekeler_synapse. The parameters
+   mu_plus and mu_minus are set to 0. (i.e. purely additive STDP),
 
   Parameters:
    tau_plus   double - Time constant of STDP window, potentiation in ms
@@ -38,7 +38,8 @@
    alpha      double - Asymmetry parameter (scales depressing increments as
                        alpha*lambda)
    Wmax       double - Maximum allowed weight
-   bias       double -
+   bias       double - Constant increment for each pre-synaptic spike.
+                       Scaled by the learning rate.
 
   Transmits: SpikeEvent
 
